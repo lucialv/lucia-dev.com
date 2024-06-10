@@ -1,0 +1,11 @@
+{
+  "TEST": "Click me!",
+  "HIIAM": "Hi I'm",
+  "ANDIM": "and I'm a",
+  "DEVELOPER": "Developer",
+  "SEO": {
+    "TITLE": {
+      "HOME": "Home Page"
+    }
+  }
+}

@@ -1,37 +1,61 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
+import LanguageSelector from "../components/LanguageSelector.astro";
+const { currentLocale } = Astro;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html data-theme="light" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="navbar bg-base-100">
+      <div class="flex-1">
+        <a
+          href={currentLocale === "en" ? "/en" : "/"}
+          class="text-xl hover:scale-110"
+        >
+          <img src="/Logo.png" alt="logo" class="h-12 p-1" />
+        </a>
+      </div>
+      <div class="flex-none">
+        <ul class="menu menu-horizontal px-1">
+          <li><a>Link</a></li>
+        </ul>
+      </div>
+      <LanguageSelector />
+    </div>
+    <slot />
+  </body>
 </html>
+
 <style is:global>
-	@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-	html {
-		font-family: system-ui, sans-serif;
-		background-size: 224px;
-		background-color: #292928;
-	}
-	
-	.Nunito {
-	font-family: "Nunito", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: <weight>;
-	font-style: normal;
-	}
+  @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+  html {
+    font-family: system-ui, sans-serif;
+    background-size: 224px;
+    background-color: #292928;
+  }
+
+  @font-face {
+    font-family: "Mini"; /* Name your font family */
+    src: url(/src/fonts/mini-wakuwaku-maru.woff2) format("woff2"); /* Locate the .ttf file within your directory*/
+  }
+  .mini-waku {
+    font-family: "Mini";
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-style: normal;
+    src: url(/src/fonts/mini-wakuwaku-maru.woff2) format("woff2");
+  }
 </style>
