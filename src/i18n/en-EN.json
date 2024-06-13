@@ -2,6 +2,13 @@
   "TEST": "Click me!",
   "HIIAM": "Hi I'm",
   "ANDIM": "and I'm a",
+  "EDUCATION": "Studies",
+  "HIGHSCHOOL": "High School",
+  "FIRST_YEAR": "First year of",
+  "LIVE": "Present",
+  "SECOND_YEAR": "Second year of",
+  "MSN_VET_PROGRAM": "Intermediate VET MSN",
+  "MAD_VET_PROGRAM": "Advance VET Multiplatform Applications Development",
   "DEVELOPER": "Developer",
   "SEO": {
     "TITLE": {

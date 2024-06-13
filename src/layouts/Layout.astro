@@ -58,4 +58,18 @@ const { currentLocale } = Astro;
     font-style: normal;
     src: url(/src/fonts/mini-wakuwaku-maru.woff2) format("woff2");
   }
+  .avatar {
+    animation: vert-move 3s ease-in-out infinite;
+  }
+  @keyframes vert-move {
+    0% {
+      transform: translateY(-5px);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(-5px);
+    }
+  }
 </style>

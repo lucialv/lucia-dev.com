@@ -2,6 +2,13 @@
   "TEST": "Hazme click!",
   "HIIAM": "Hola, soy",
   "ANDIM": "y soy",
+  "EDUCATION": "Estudios",
+  "HIGHSCHOOL": "ESO",
+  "FIRST_YEAR": "Primer año de",
+  "LIVE": "Presente",
+  "SECOND_YEAR": "Segundo año de",
+  "MSN_VET_PROGRAM": "Ciclo Formativo de Grado Medio SMR",
+  "MAD_VET_PROGRAM": "Ciclo Formativo de Grado Superior Desarrollo de Aplicaciones Multiplataforma",
   "DEVELOPER": "Programadora",
   "SEO": {
     "TITLE": {

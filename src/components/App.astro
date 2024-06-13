@@ -21,21 +21,28 @@ const i18n = getI18N({ currentLocale });
           <h1>
             {i18n.HIIAM}
             <span
-              class="bg-gradient-to-r from-pink-300 via-purple-500 to-purple-300 bg-clip-text font-bold text-transparent"
+              class="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text font-bold text-transparent"
               >Lucia
             </span>
           </h1>
         </div>
         <div
-          class="flex items-center justify-center text-3xl md:justify-normal lg:text-6xl xl:text-7xl 2xl:text-7xl"
+          class="flex items-center justify-center text-3xl md:justify-normal lg:text-5xl xl:text-7xl 2xl:text-7xl"
         >
-          <h1 class="min-w-[650px] inline-block">
+          <h1
+            class="md:min-w-[325px] lg:min-w-[520px] xl:min-w-[790px] inline-block"
+          >
             {i18n.ANDIM}
             <span
-              class="bg-gradient-to-r from-pink-300 via-purple-500 to-purple-300 bg-clip-text font-bold text-transparent"
+              class="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text font-bold text-transparent"
               >{i18n.DEVELOPER}
             </span>
           </h1>
+          <img
+            src="https://cdn.discordapp.com/emojis/976721057237057566.gif?size=1280&quality=lossless"
+            alt="uwu"
+            class="ml-2 h-8 lg:h-14 md:h-10 xl:h-20 w-auto"
+          />
         </div>
       </div>
       <div class="flex justify-center gap-x-4 pt-10 font-bold">
@@ -65,8 +72,93 @@ const i18n = getI18N({ currentLocale });
       <img
         src="/yo.jpg"
         alt="yo"
-        class="h-80 rounded-full border-4 border-purple-200"
+        class="h-80 rounded-full border-4 border-primary/50 avatar"
       />
     </div>
+  </div>
+  <div class="md:mt-[350px] mb-32">
+    <div class="mini-waku flex items-center justify-center mb-12">
+      <h2 class="text-5xl font-bold text-[#0b0517] text-center">
+        {i18n.EDUCATION}
+      </h2>
+      <img src="/docu.png" alt="Docs" class="ml-2 h-16 w-16" />
+    </div>
+    <ul class="timeline timeline-vertical">
+      <li>
+        <div class="timeline-start timeline-box">{i18n.HIGHSCHOOL}</div>
+        <div class="timeline-middle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-5 h-5 text-primary"
+            ><path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"></path></svg
+          >
+        </div>
+        <hr class="bg-primary" />
+      </li>
+      <li>
+        <hr class="bg-primary" />
+        <div class="timeline-middle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-5 h-5 text-primary"
+            ><path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"></path></svg
+          >
+        </div>
+        <div class="timeline-end timeline-box">
+          {i18n.FIRST_YEAR}
+          {i18n.MSN_VET_PROGRAM}
+        </div>
+        <hr class="bg-primary" />
+      </li>
+      <li>
+        <hr class="bg-secondary" />
+        <div class="timeline-start timeline-box">
+          {i18n.SECOND_YEAR}
+          {i18n.MSN_VET_PROGRAM}
+        </div>
+        <div class="timeline-middle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-5 h-5 text-secondary"
+            ><path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"></path></svg
+          >
+        </div>
+        <div class="timeline-end badge badge-secondary text-primary">
+          ⬤ {i18n.LIVE}
+        </div>
+        <hr />
+      </li>
+      <li>
+        <hr />
+        <div class="timeline-end timeline-box">{i18n.MAD_VET_PROGRAM}</div>
+        <div class="timeline-middle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-5 h- text-base-300"
+            ><path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+              clip-rule="evenodd"></path></svg
+          >
+        </div>
+      </li>
+    </ul>
   </div>
 </Layout>
