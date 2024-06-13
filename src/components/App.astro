@@ -9,14 +9,14 @@ const i18n = getI18N({ currentLocale });
 <Layout title={i18n.SEO.TITLE.HOME}>
   <div
     id="home"
-    class="container right-0 mx-auto md:mt-28 flex flex-col items-center px- md:flex-row md:py-16"
+    class="container sm:px-8 right-0 mx-auto md:mt-28 flex flex-col items-center px- md:flex-row md:py-16"
   >
     <div
       class="mb-16 flex flex-col items-center text-center text-[#0b0517] drop-shadow-xl md:mb-0 md:w-1/2 md:items-start md:mr-16 md:text-left lg:flex-grow lg:mr-24"
     >
       <div class="mini-waku">
         <div
-          class="pt-16 text-4xl md:pt-0 md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl"
+          class="pt-16 text-3xl md:pt-0 md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl"
         >
           <h1>
             {i18n.HIIAM}
@@ -27,7 +27,7 @@ const i18n = getI18N({ currentLocale });
           </h1>
         </div>
         <div
-          class="flex items-center justify-center text-3xl md:justify-normal lg:text-5xl xl:text-7xl 2xl:text-7xl"
+          class="flex items-center justify-center sm:text-3xl text-2xl md:justify-normal lg:text-5xl xl:text-7xl 2xl:text-7xl"
         >
           <h1
             class="md:min-w-[325px] lg:min-w-[520px] xl:min-w-[790px] inline-block"
@@ -78,12 +78,12 @@ const i18n = getI18N({ currentLocale });
   </div>
   <div class="md:mt-[350px] mt-20 mb-32">
     <div class="mini-waku flex items-center justify-center mb-12">
-      <h2 class="text-5xl font-bold text-[#0b0517] text-center">
+      <h2 class="text-3xl md:text-5xl font-bold text-[#0b0517] text-center">
         {i18n.EDUCATION}
       </h2>
-      <img src="/docu.png" alt="Docs" class="ml-2 h-16 w-16" />
+      <img src="/docu.png" alt="Docs" class="ml-2 h-10 w-10 md:h-16 md:w-16" />
     </div>
-    <ul class="timeline timeline-vertical">
+    <ul class="timeline timeline-vertical px-8">
       <li>
         <div class="timeline-start timeline-box">{i18n.HIGHSCHOOL}</div>
         <div class="timeline-middle">
