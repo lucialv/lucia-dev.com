@@ -230,6 +230,7 @@ const i18n = getI18N({ currentLocale });
               type="text"
               name="name"
               id="name"
+              required
               placeholder="Lucia"
               class="w-full rounded-md border bg-base-100 border-[#e0e0e0] px-4 py-3 text-base font-medium text-black placeholder-[#6B7280] outline-none focus:border-secondary focus:shadow-sm focus:shadow-secondary/40"
             />
@@ -245,6 +246,7 @@ const i18n = getI18N({ currentLocale });
               type="email"
               name="email"
               id="email"
+              required
               placeholder={i18n.EMAIL_PLACEHOLDER}
               class="plac w-full rounded-md border bg-base-100 border-[#e0e0e0] px-4 py-3 text-base font-medium text-black placeholder-[#6B7280] outline-none focus:border-secondary focus:shadow-sm focus:shadow-secondary/40"
             />
@@ -260,6 +262,7 @@ const i18n = getI18N({ currentLocale });
               type="text"
               name="subject"
               id="subject"
+              required
               placeholder={i18n.SUBJECT_PLACEHOLDER}
               class="w-full rounded-md border bg-base-100 border-[#e0e0e0] px-4 py-3 text-base font-medium text-black placeholder-[#6B7280] outline-none focus:border-secondary focus:shadow-sm focus:shadow-secondary/40"
             />
@@ -272,6 +275,7 @@ const i18n = getI18N({ currentLocale });
               rows="4"
               name="message"
               id="message"
+              required
               placeholder={i18n.MESSAGE_PLACEHOLDER}
               class="w-full resize-none rounded-md border bg-base-100 border-[#e0e0e0] px-4 py-3 text-base font-medium text-black placeholder-[#6B7280] outline-none focus:border-secondary focus:shadow-sm focus:shadow-secondary/40"
             ></textarea>
