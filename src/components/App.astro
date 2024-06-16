@@ -1,18 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import LanguageSelector from "./LanguageSelector.astro";
 import { getI18N } from "../i18n";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 
-<Layout title={i18n.SEO.TITLE.HOME}>
+<Layout title={i18n.SEO.TITLE} description={i18n.SEO.DESCRIPTION}>
   <div
     id="home"
-    class="container sm:px-8 right-0 mx-auto md:mt-28 flex flex-col items-center px- md:flex-row md:py-16"
+    class="container sm:px-8 right-0 mx-auto md:mt-28 flex md:flex-row md:py-16 flex-col items-center md:items-start"
   >
     <div
-      class="mb-16 flex flex-col items-center text-center text-[#0b0517] drop-shadow-xl md:mb-0 md:w-1/2 md:items-start md:mr-16 md:text-left lg:flex-grow lg:mr-24"
+      class="mb-16 flex flex-col text-center tracking-tighter text-[#0b0517] drop-shadow-xl md:mb-0 md:w-1/2 md:items-start md:mr-16 md:text-left lg:flex-grow lg:mr-24"
     >
       <div class="mini-waku">
         <div
@@ -67,23 +66,58 @@ const i18n = getI18N({ currentLocale });
           </button></a
         >
       </div>
+      <div
+        class="md:flex font-semibold items-center md:mt-60 hidden gap-x-3 scrollDown"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-primary"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M6 3m0 4a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-4a4 4 0 0 1 -4 -4z"
+          ></path>
+          <path d="M12 7l0 4"></path>
+        </svg>
+        <h1>{i18n.SCROLL_DOWN}</h1>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          class="h-6 w-6 text-primary"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10 3a.75.75 0 0 1 .75.75v10.638l3.96-4.158a.75.75 0 1 1 1.08 1.04l-5.25 5.5a.75.75 0 0 1-1.08 0l-5.25-5.5a.75.75 0 1 1 1.08-1.04l3.96 4.158V3.75A.75.75 0 0 1 10 3Z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </div>
     </div>
     <div>
       <img
         src="/yo.jpg"
         alt="yo"
-        class="h-80 rounded-full border-4 border-primary/50 avatar"
+        class="h-64 xl:h-80 rounded-full border-4 -mt-8 border-primary/50 avatar"
       />
     </div>
   </div>
-  <div class="md:mt-[350px] mt-20 mb-32">
-    <div class="mini-waku flex items-center justify-center mb-12">
-      <h2 class="text-3xl md:text-5xl font-bold text-[#0b0517] text-center">
+
+  <div class="mt-20 md:mt-[150px] mb-32">
+    <div class="mini-waku flex items-center justify-center mb-12 2xl:mb-20">
+      <h2
+        class="text-3xl md:text-5xl lg:text-6xl font-bold text-[#0b0517] text-center"
+      >
         {i18n.EDUCATION}
       </h2>
       <img src="/docu.png" alt="Docs" class="ml-2 h-10 w-10 md:h-16 md:w-16" />
     </div>
-    <ul class="timeline timeline-vertical px-8">
+    <ul class="timeline lg:text-xl timeline-vertical px-8 max-w-auto">
       <li>
         <div class="timeline-start timeline-box">{i18n.HIGHSCHOOL}</div>
         <div class="timeline-middle">
@@ -138,7 +172,7 @@ const i18n = getI18N({ currentLocale });
               clip-rule="evenodd"></path></svg
           >
         </div>
-        <div class="timeline-end badge badge-secondary text-primary">
+        <div class="timeline-end badge badge-secondary py-3 text-[#220041]">
           ⬤ {i18n.LIVE}
         </div>
         <hr />
@@ -161,4 +195,131 @@ const i18n = getI18N({ currentLocale });
       </li>
     </ul>
   </div>
+  <div class="justift-center p-12 mx-auto mb-32">
+    <div class="mini-waku flex items-center justify-center mb-12">
+      <h2
+        class="text-3xl md:text-5xl lg:text-6xl font-bold text-[#0b0517] text-center"
+      >
+        {i18n.CONTACT}
+      </h2>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        class="ml-4 h-10 w-10 md:h-16 md:w-16 text-primary"
+      >
+        <path
+          d="M3.505 2.365A41.369 41.369 0 0 1 9 2c1.863 0 3.697.124 5.495.365 1.247.167 2.18 1.108 2.435 2.268a4.45 4.45 0 0 0-.577-.069 43.141 43.141 0 0 0-4.706 0C9.229 4.696 7.5 6.727 7.5 8.998v2.24c0 1.413.67 2.735 1.76 3.562l-2.98 2.98A.75.75 0 0 1 5 17.25v-3.443c-.501-.048-1-.106-1.495-.172C2.033 13.438 1 12.162 1 10.72V5.28c0-1.441 1.033-2.717 2.505-2.914Z"
+        ></path>
+        <path
+          d="M14 6c-.762 0-1.52.02-2.271.062C10.157 6.148 9 7.472 9 8.998v2.24c0 1.519 1.147 2.839 2.71 2.935.214.013.428.024.642.034.2.009.385.09.518.224l2.35 2.35a.75.75 0 0 0 1.28-.531v-2.07c1.453-.195 2.5-1.463 2.5-2.915V8.998c0-1.526-1.157-2.85-2.729-2.936A41.645 41.645 0 0 0 14 6Z"
+        ></path>
+      </svg>
+    </div>
+    <div class="flex items-center justify-center">
+      <div class="mx-auto w-full max-w-[550px]">
+        <form action="https://formbold.com/s/3ZjWp" method="POST">
+          <div class="mb-5 max-w-[200px]">
+            <label
+              for="name"
+              class="mb-3 block text-base font-medium text-black"
+            >
+              {i18n.FULL_NAME}
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Lucia"
+              class="w-full rounded-md border bg-base-100 border-[#e0e0e0] px-4 py-3 text-base font-medium text-black placeholder-[#6B7280] outline-none focus:border-secondary focus:shadow-sm focus:shadow-secondary/40"
+            />
+          </div>
+          <div class="mb-5 max-w-[300px]">
+            <label
+              for="email"
+              class="mb-3 block text-base font-medium text-black"
+            >
+              {i18n.EMAIL}
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder={i18n.EMAIL_PLACEHOLDER}
+              class="plac w-full rounded-md border bg-base-100 border-[#e0e0e0] px-4 py-3 text-base font-medium text-black placeholder-[#6B7280] outline-none focus:border-secondary focus:shadow-sm focus:shadow-secondary/40"
+            />
+          </div>
+          <div class="mb-5 max-w-[400px]">
+            <label
+              for="subject"
+              class="mb-3 block text-base font-medium text-black"
+            >
+              {i18n.SUBJECT}
+            </label>
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              placeholder={i18n.SUBJECT_PLACEHOLDER}
+              class="w-full rounded-md border bg-base-100 border-[#e0e0e0] px-4 py-3 text-base font-medium text-black placeholder-[#6B7280] outline-none focus:border-secondary focus:shadow-sm focus:shadow-secondary/40"
+            />
+          </div>
+          <div class="mb-5">
+            <label class="mb-3 block text-base font-medium text-black">
+              {i18n.MESSAGE}
+            </label>
+            <textarea
+              rows="4"
+              name="message"
+              id="message"
+              placeholder={i18n.MESSAGE_PLACEHOLDER}
+              class="w-full resize-none rounded-md border bg-base-100 border-[#e0e0e0] px-4 py-3 text-base font-medium text-black placeholder-[#6B7280] outline-none focus:border-secondary focus:shadow-sm focus:shadow-secondary/40"
+            ></textarea>
+          </div>
+          <div>
+            <button
+              class="group relative inline-flex items-center justify-center overflow-hidden rounded-full border-2 border-secondary p-4 px-6 py-3 font-medium drop-shadow-[0_0_0.6rem_#b393d670] transition duration-300 ease-out"
+            >
+              <span
+                class="ease absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center bg-secondary text-white duration-300 group-hover:translate-x-0"
+              >
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </span>
+              <span
+                class="ease absolute flex h-full w-full transform items-center justify-center text-black transition-all duration-300 group-hover:translate-x-full"
+                >{i18n.SEND}</span
+              >
+              <span class="invisible relative">{i18n.SEND}</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<script>
+  function changeCss() {
+    var navElement = document.querySelector(".scrollDown") as HTMLElement;
+    if (!navElement) return;
+
+    //change opacity of the navElement but smoother, first to 0,9 then to 0,8 then to 0,7 and so on to 0
+    var scrollValue = window.scrollY;
+    var opacityValue = 0.9 - scrollValue / 600;
+    navElement.style.opacity = opacityValue.toString();
+  }
+
+  window.addEventListener("scroll", changeCss, false);
+</script>

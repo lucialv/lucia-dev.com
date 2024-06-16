@@ -1,10 +1,12 @@
 ---
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 import LanguageSelector from "../components/LanguageSelector.astro";
+import Scrollup from "../components/ScrollUp.astro";
 const { currentLocale } = Astro;
 ---
 
@@ -12,13 +14,36 @@ const { currentLocale } = Astro;
 <html data-theme="light" lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/icon.png" />
     <title>{title}</title>
+
+    <!-- Twitter Meta Tags -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:site" content="@luciacatgirl" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/og.png" />
+    <meta property="twitter:image:width" content="1200" />
+    <meta property="twitter:image:height" content="628" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og.png" />
+    <meta property="og:url" content="https://lucia-dev.com" />
+    <meta property="og:site_name" content={title} />
+
+    <!-- Theme Meta Tags -->
+    <meta name="theme-color" content="#b393d6" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="msapplication-navbutton-color" content="#b393d6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content={title} />
   </head>
   <body>
+    <div id="top"></div>
     <div class="navbar bg-base-100">
       <div class="flex-1">
         <a
@@ -28,14 +53,31 @@ const { currentLocale } = Astro;
           <img src="/Logo.png" alt="logo" class="h-12 p-1" />
         </a>
       </div>
-      <div class="flex-none">
-        <ul class="menu menu-horizontal px-1">
-          <li><a>Link</a></li>
-        </ul>
-      </div>
       <LanguageSelector />
     </div>
+    <div class="absolute bottom-0 right-0 z-50">
+      <Scrollup />
+    </div>
     <slot />
+    <footer class="footer footer-center p-4 font-semibold">
+      <aside>
+        <p class="flex items-center gap-x-1">
+          Made with <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="h-4 w-4 text-primary"
+          >
+            <path
+              d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z"
+            ></path>
+          </svg>
+          by <a class="hover:underline" href="https://github.com/lucialv"
+            >@lucialv</a
+          >
+        </p>
+      </aside>
+    </footer>
   </body>
 </html>
 
@@ -45,6 +87,11 @@ const { currentLocale } = Astro;
     font-family: system-ui, sans-serif;
     background-size: 224px;
     background-color: #292928;
+  }
+
+  html,
+  body {
+    scroll-behavior: smooth;
   }
 
   @font-face {
@@ -61,12 +108,15 @@ const { currentLocale } = Astro;
   .avatar {
     animation: vert-move 3s ease-in-out infinite;
   }
+  .scrollDown {
+    animation: vert-move 2s ease-in-out infinite;
+  }
   @keyframes vert-move {
     0% {
       transform: translateY(-5px);
     }
     50% {
-      transform: translateY(10px);
+      transform: translateY(5px);
     }
     100% {
       transform: translateY(-5px);

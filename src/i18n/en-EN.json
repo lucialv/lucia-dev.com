@@ -3,6 +3,16 @@
   "HIIAM": "Hi I'm",
   "ANDIM": "and I'm a",
   "EDUCATION": "Studies",
+  "CONTACT": "Contact",
+  "FULL_NAME": "Full name",
+  "EMAIL": "Email",
+  "MESSAGE": "Message",
+  "SEND": "Submit",
+  "SUBJECT": "Subject",
+  "SCROLL_DOWN": "Scroll Down",
+  "EMAIL_PLACEHOLDER": "example@domain.com",
+  "SUBJECT_PLACEHOLDER": "Enter your subject",
+  "MESSAGE_PLACEHOLDER": "Enter your message",
   "HIGHSCHOOL": "High School",
   "FIRST_YEAR": "First year of",
   "LIVE": "Present",
@@ -11,8 +21,7 @@
   "MAD_VET_PROGRAM": "Advance VET Multiplatform Applications Development",
   "DEVELOPER": "Developer",
   "SEO": {
-    "TITLE": {
-      "HOME": "Home Page"
-    }
+    "TITLE": "Lucía Álvarez - Web Developer",
+    "DESCRIPTION": "Lucía Álvarez's portfolio, web developer."
   }
 }

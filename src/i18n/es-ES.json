@@ -3,6 +3,16 @@
   "HIIAM": "Hola, soy",
   "ANDIM": "y soy",
   "EDUCATION": "Estudios",
+  "CONTACT": "Contacto",
+  "FULL_NAME": "Nombre completo",
+  "EMAIL": "Correo electrónico",
+  "MESSAGE": "Mensaje",
+  "SEND": "Enviar",
+  "SUBJECT": "Asunto",
+  "SCROLL_DOWN": "Baja hacia abajo",
+  "EMAIL_PLACEHOLDER": "ejemplo@dominio.com",
+  "SUBJECT_PLACEHOLDER": "Introduce tu asunto",
+  "MESSAGE_PLACEHOLDER": "Introduce tu mensaje",
   "HIGHSCHOOL": "ESO",
   "FIRST_YEAR": "Primer año de",
   "LIVE": "Presente",
@@ -11,8 +21,7 @@
   "MAD_VET_PROGRAM": "Ciclo Formativo de Grado Superior Desarrollo de Aplicaciones Multiplataforma",
   "DEVELOPER": "Programadora",
   "SEO": {
-    "TITLE": {
-      "HOME": "Página de inicio"
-    }
+    "TITLE": "Lucía Álvarez - Desarrolladora Web",
+    "DESCRIPTION": "Portafolio de Lucía Álvarez, desarrolladora web."
   }
 }
