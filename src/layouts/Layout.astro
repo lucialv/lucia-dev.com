@@ -24,14 +24,14 @@ const { currentLocale } = Astro;
     <meta property="twitter:site" content="@luciacatgirl" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="/og.png" />
+    <meta property="twitter:image" content="/og.jpg" />
     <meta property="twitter:image:width" content="1200" />
     <meta property="twitter:image:height" content="628" />
 
     <!-- Open Graph (OG) Meta Tags -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og.png" />
+    <meta property="og:image" content="/og.jpg" />
     <meta property="og:url" content="https://lucia-dev.com" />
     <meta property="og:site_name" content={title} />
 
@@ -50,7 +50,7 @@ const { currentLocale } = Astro;
           href={currentLocale === "en" ? "/en" : "/"}
           class="text-xl hover:scale-110"
         >
-          <img src="/Logo.png" alt="logo" class="h-12 p-1" />
+          <img src="/Logo.webp" alt="logo" class="h-12 p-1" />
         </a>
       </div>
       <LanguageSelector />
