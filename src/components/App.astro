@@ -13,7 +13,7 @@ const i18n = getI18N({ currentLocale });
     <div
       class="mb-16 flex flex-col text-center tracking-tighter text-[#0b0517] drop-shadow-xl md:mb-0 md:w-1/2 md:items-start md:mr-16 md:text-left lg:flex-grow lg:mr-24"
     >
-      <div class="mini-waku">
+      <div class="font-[Mini]">
         <div
           class="pt-16 text-3xl md:pt-0 md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl"
         >
@@ -21,7 +21,7 @@ const i18n = getI18N({ currentLocale });
             {i18n.HIIAM}
             <span
               class="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text font-bold text-transparent"
-              >Lucia
+              >Luc<span class="font-[Potato]">í</span>a
             </span>
           </h1>
         </div>
@@ -39,7 +39,8 @@ const i18n = getI18N({ currentLocale });
           </h1>
           <img
             src="/typing.gif"
-            alt="uwu"
+            alt={i18n.ALT.SYLVEON}
+            draggable="false"
             class="ml-2 h-8 lg:h-14 md:h-10 xl:h-20 w-auto"
           />
         </div>
@@ -102,24 +103,101 @@ const i18n = getI18N({ currentLocale });
     <div>
       <img
         src="/yo.webp"
-        alt="yo"
+        alt={i18n.ALT.LUCIA}
+        draggable="false"
         class="h-64 xl:h-80 rounded-full border-4 -mt-8 border-primary/50 avatar"
       />
     </div>
   </div>
 
+  <!-- About Me Section -->
+
+  <div class="hero mt-20 md:mt-[150px] mb-32">
+    <div
+      class="hero-content flex-col-reverse lg:flex-row border-2 border-secondary rounded-lg m-8 pb-12 px-8"
+    >
+      <img src="/girl.png" class="w-[16rem] xl:w-[24rem] rounded-lg" />
+      <div class="max-w-lg text-xl">
+        <div class="mt-4">
+          <h1
+            class="text-3xl font-[Mini] md:text-5xl xl:text-6xl font-bold mb-8"
+          >
+            {
+              currentLocale === "es" ? (
+                <span>
+                  Sobre m<span class="font-[Potato]">í</span>
+                </span>
+              ) : (
+                i18n.ABOUT_ME.TITLE
+              )
+            }
+          </h1>
+        </div>
+        {
+          currentLocale === "es" ? (
+            <>
+              <p class="mb-4 aboutme">
+                <span>Desarrolladora Junior</span>, con muchas ganas de aprender
+                más cada día y decidida a lograr algo grandioso en el futuro
+                como
+                <span>Desarrolladora Web</span>.
+              </p>
+              <p class="aboutme">
+                Hace poco terminé el primer año del{" "}
+                <span>Ciclo Formativo de Grado Medio SMR</span>y actualmente voy
+                por el segundo año disfrutando mucho de la experiencia de
+                aprender y crecer.
+              </p>
+            </>
+          ) : (
+            <>
+              <p class="mb-4 aboutme">
+                <span>Junior Developer</span>, eager to learn more every day and
+                determined to achieve something great in the future as a{" "}
+                <span>Web Developer</span>.
+              </p>
+              <p class="aboutme">
+                I recently finished the first year of the{" "}
+                <span>Intermediate VET MSN</span> and I am currently in the
+                second year enjoying the experience of learning and growing.
+              </p>
+            </>
+          )
+        }
+      </div>
+    </div>
+  </div>
+  <div class="divider flex mx-auto max-w-xs"></div>
   <div class="mt-20 md:mt-[150px] mb-32">
-    <div class="mini-waku flex items-center justify-center mb-12 2xl:mb-20">
+    <div class="flex items-center justify-center mb-12 2xl:mb-20">
       <h2
-        class="text-3xl md:text-5xl lg:text-6xl font-bold text-[#0b0517] text-center"
+        class="text-3xl font-[Mini] md:text-5xl lg:text-6xl font-bold text-[#0b0517] text-center"
       >
         {i18n.EDUCATION}
       </h2>
-      <img src="/docu.webp" alt="Docs" class="ml-2 h-10 w-10 md:h-16 md:w-16" />
+      <img
+        src="/docu.webp"
+        alt={i18n.ALT.DOCUMENT}
+        draggable="false"
+        class="ml-2 h-10 w-10 md:h-16 md:w-16"
+      />
     </div>
-    <ul class="timeline lg:text-xl timeline-vertical px-8 max-w-auto">
+    <ul
+      class="timeline lg:text-xl timeline-vertical px-8 max-w-[65rem] mx-auto"
+    >
       <li>
-        <div class="timeline-start timeline-box">{i18n.HIGHSCHOOL}</div>
+        {
+          currentLocale === "es" ? (
+            <div
+              class="timeline-start tooltip tooltip-secondary timeline-box"
+              data-tip="Educación Secundaria Obligatoria"
+            >
+              {i18n.HIGHSCHOOL}
+            </div>
+          ) : (
+            <div class="timeline-start timeline-box">{i18n.HIGHSCHOOL}</div>
+          )
+        }
         <div class="timeline-middle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +226,10 @@ const i18n = getI18N({ currentLocale });
               clip-rule="evenodd"></path></svg
           >
         </div>
-        <div class="timeline-end timeline-box">
+        <div
+          class="timeline-end timeline-box tooltip tooltip-secondary"
+          data-tip={i18n.MSN_VET_PROGRAM_DESCRIPTION}
+        >
           {i18n.FIRST_YEAR}
           {i18n.MSN_VET_PROGRAM}
         </div>
@@ -156,7 +237,10 @@ const i18n = getI18N({ currentLocale });
       </li>
       <li>
         <hr class="bg-secondary" />
-        <div class="timeline-start timeline-box">
+        <div
+          class="timeline-start timeline-box tooltip tooltip-secondary"
+          data-tip={i18n.MSN_VET_PROGRAM_DESCRIPTION}
+        >
           {i18n.SECOND_YEAR}
           {i18n.MSN_VET_PROGRAM}
         </div>
@@ -195,10 +279,11 @@ const i18n = getI18N({ currentLocale });
       </li>
     </ul>
   </div>
-  <div class="justift-center p-12 mx-auto mb-32">
-    <div class="mini-waku flex items-center justify-center mb-12">
+  <div class="divider flex mx-auto max-w-xs"></div>
+  <div class="justift-center p-12 mx-auto mt-16 mb-32">
+    <div class="flex items-center justify-center mb-12">
       <h2
-        class="text-3xl md:text-5xl lg:text-6xl font-bold text-[#0b0517] text-center"
+        class="font-[Mini] text-3xl md:text-5xl lg:text-6xl font-bold text-[#0b0517] text-center"
       >
         {i18n.CONTACT}
       </h2>
@@ -268,7 +353,10 @@ const i18n = getI18N({ currentLocale });
             />
           </div>
           <div class="mb-5">
-            <label class="mb-3 block text-base font-medium text-black">
+            <label
+              for="message"
+              class="mb-3 block text-base font-medium text-black"
+            >
               {i18n.MESSAGE}
             </label>
             <textarea

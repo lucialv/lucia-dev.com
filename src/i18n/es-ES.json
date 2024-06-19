@@ -18,10 +18,22 @@
   "LIVE": "Presente",
   "SECOND_YEAR": "Segundo año de",
   "MSN_VET_PROGRAM": "Ciclo Formativo de Grado Medio SMR",
+  "MSN_VET_PROGRAM_DESCRIPTION": "Sistemas Microinformáticos y Redes",
   "MAD_VET_PROGRAM": "Ciclo Formativo de Grado Superior Desarrollo de Aplicaciones Multiplataforma",
   "DEVELOPER": "Programadora",
+  "ABOUT_ME": {
+    "TITLE": "Sobre mí",
+    "FIRST_PARAGRAPH": "<span>Desarrolladora Junior</span>, con muchas ganas de aprender más cada día y decidida a lograr algo grandioso en el futuro como Desarrolladora Web.",
+    "SECOND_PARAGRAPH": "Hace poco terminé el primer año del Ciclo Formativo de Grado Medio SMR y actualmente voy por el segundo año disfrutando mucho de la experiencia de aprender y crecer."
+  },
   "SEO": {
     "TITLE": "Lucía Álvarez - Desarrolladora Web",
-    "DESCRIPTION": "Portafolio de Lucía Álvarez, desarrolladora web."
+    "DESCRIPTION": "Lucia Alvarez - Programadora y Desarrolladora de Software. Descubre mis proyectos y habilidades en desarrollo web y más."
+  },
+  "ALT": {
+    "SYLVEON": "Ilustración de un Sylveon, un Pokémon de tipo hada que está escribiendo en el ordenador.",
+    "LUCIA": "Foto de Lucía Álvarez, una chica con el pelo corto y una camiseta de color rosa.",
+    "LUCIA_LOGO": "Logo de Lucía Álvarez, una tipografía con el nombre de Lucía y un corazón al final.",
+    "DOCUMENT": "Ilustración de un documento con un sello de aprobación."
   }
 }

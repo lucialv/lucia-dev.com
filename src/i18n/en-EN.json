@@ -18,10 +18,22 @@
   "LIVE": "Present",
   "SECOND_YEAR": "Second year of",
   "MSN_VET_PROGRAM": "Intermediate VET MSN",
+  "MSN_VET_PROGRAM_DESCRIPTION": "Microcomputer Systems and Networks",
   "MAD_VET_PROGRAM": "Advance VET Multiplatform Applications Development",
   "DEVELOPER": "Developer",
+  "ABOUT_ME": {
+    "TITLE": "About me",
+    "FIRST_PARAGRAPH": "Junior Developer, eager to learn more every day and determined to achieve something great in the future as a Web Developer.",
+    "SECOND_PARAGRAPH": "I recently finished the first year of the Intermediate VET MSN and I am currently in the second year enjoying the experience of learning and growing."
+  },
   "SEO": {
     "TITLE": "Lucía Álvarez - Web Developer",
-    "DESCRIPTION": "Lucía Álvarez's portfolio, web developer."
+    "DESCRIPTION": "Lucia Alvarez - Programmer and Software Developer. Discover my projects and skills in web development and more."
+  },
+  "ALT": {
+    "SYLVEON": "Illustration of a Sylveon, a fairy-type Pokémon that is typing on the computer.",
+    "LUCIA": "Photo of Lucía Álvarez, a girl with short hair and a pink t-shirt.",
+    "LUCIA_LOGO": "Lucía Álvarez's logo, a typography with the name Lucía and a heart at the end.",
+    "DOCUMENT": "Illustration of a document with an approval stamp."
   }
 }

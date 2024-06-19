@@ -1,24 +1,25 @@
 ---
+import LanguageSelector from "../components/LanguageSelector.astro";
+import Scrollup from "../components/ScrollUp.astro";
+import { getI18N } from "../i18n";
 interface Props {
   title: string;
   description: string;
 }
 
 const { title, description } = Astro.props;
-import LanguageSelector from "../components/LanguageSelector.astro";
-import Scrollup from "../components/ScrollUp.astro";
 const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <!doctype html>
-<html data-theme="light" lang="en">
+<html data-theme="light" lang={currentLocale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="canonical" href="https://lucia-dev.com" />
     <meta name="author" content="Lucia" />
     <meta name="robots" content="index, follow" />
 
@@ -28,16 +29,10 @@ const { currentLocale } = Astro;
       content="lucia, programadora, desarrolladora, lucia alvarez, lucia-dev, luciadev, luciaalvarez"
     />
     <meta name="revisit-after" content="7 days" />
-    <meta name="language" content="Spanish" />
-    <meta name="generator" content="Astro" />
-    <meta name="distribution" content="global" />
-    <meta name="rating" content="general" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#b393d6" />
-    <meta name="description" content={description} />
+    <meta name="language" content="es" />
     <meta name="subject" content="Lucia, programadora, desarrolladora" />
     <meta name="url" content="https://lucia-dev.com" />
+    <link rel="canonical" href="https://lucia-dev.com" />
     <meta name="identifier-URL" content="https://lucia-dev.com" />
 
     <title>{title}</title>
@@ -73,7 +68,12 @@ const { currentLocale } = Astro;
           href={currentLocale === "en" ? "/en" : "/"}
           class="text-xl hover:scale-110"
         >
-          <img src="/Logo.webp" alt="logo" class="h-12 p-1" />
+          <img
+            src="/Logo.webp"
+            alt={i18n.ALT.LUCIA_LOGO}
+            draggable="false"
+            class="h-12 p-1"
+          />
         </a>
       </div>
       <LanguageSelector />
@@ -106,9 +106,7 @@ const { currentLocale } = Astro;
 
 <style is:global>
   html {
-    font-family: system-ui, sans-serif;
-    background-size: 224px;
-    background-color: #292928;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
 
   html,
@@ -117,18 +115,17 @@ const { currentLocale } = Astro;
   }
 
   @font-face {
-    font-family: "Mini"; /* Name your font family */
-    font-display: swap;
-    font-style: normal;
-    src: url(/src/fonts/mini-wakuwaku-maru.woff2) format("woff2"); /* Locate the .ttf file within your directory*/
-  }
-  .mini-waku {
     font-family: "Mini";
     font-display: swap;
-    font-size: 1.5rem;
-    font-weight: 700;
     font-style: normal;
     src: url(/src/fonts/mini-wakuwaku-maru.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Potato";
+    font-display: swap;
+    font-style: normal;
+    src: url(/src/fonts/potato.woff2) format("woff2");
   }
   .avatar {
     animation: vert-move 3s ease-in-out infinite;
@@ -146,6 +143,10 @@ const { currentLocale } = Astro;
     100% {
       transform: translateY(-5px);
     }
+  }
+  .aboutme span {
+    color: #b393d6;
+    font-weight: 600;
   }
 
   ::-webkit-scrollbar-track {
