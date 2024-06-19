@@ -17,6 +17,29 @@ const { currentLocale } = Astro;
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href="https://lucia-dev.com" />
+    <meta name="author" content="Lucia" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="keywords"
+      content="lucia, programadora, desarrolladora, lucia alvarez, lucia-dev, luciadev, luciaalvarez"
+    />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="language" content="Spanish" />
+    <meta name="generator" content="Astro" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="general" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#b393d6" />
+    <meta name="description" content={description} />
+    <meta name="subject" content="Lucia, programadora, desarrolladora" />
+    <meta name="url" content="https://lucia-dev.com" />
+    <meta name="identifier-URL" content="https://lucia-dev.com" />
+
     <title>{title}</title>
 
     <!-- Twitter Meta Tags -->
@@ -123,5 +146,18 @@ const { currentLocale } = Astro;
     100% {
       transform: translateY(-5px);
     }
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #f5f5f5;
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+    background-color: #f5f5f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #b393d6;
   }
 </style>

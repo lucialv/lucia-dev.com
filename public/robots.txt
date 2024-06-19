@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://lucia-dev.com
+
+# Sitemaps
+Sitemap: https://lucia-dev.com/sitemap-index.xml
