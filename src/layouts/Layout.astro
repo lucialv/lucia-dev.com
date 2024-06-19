@@ -82,7 +82,6 @@ const { currentLocale } = Astro;
 </html>
 
 <style is:global>
-  @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
   html {
     font-family: system-ui, sans-serif;
     background-size: 224px;
@@ -96,10 +95,13 @@ const { currentLocale } = Astro;
 
   @font-face {
     font-family: "Mini"; /* Name your font family */
+    font-display: swap;
+    font-style: normal;
     src: url(/src/fonts/mini-wakuwaku-maru.woff2) format("woff2"); /* Locate the .ttf file within your directory*/
   }
   .mini-waku {
     font-family: "Mini";
+    font-display: swap;
     font-size: 1.5rem;
     font-weight: 700;
     font-style: normal;
