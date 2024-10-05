@@ -114,13 +114,16 @@ const i18n = getI18N({ currentLocale });
 
   <div class="hero mt-20 md:mt-[150px] mb-32">
     <div
-      class="hero-content flex-col-reverse lg:flex-row border-2 border-secondary rounded-lg m-8 pb-12 px-8"
+      class="gap-4 xl:w-[1200px] p-4 items-center lg:flex border-2 border-secondary rounded-lg m-8 pb-12 px-8"
     >
-      <img src="/girl.png" class="w-[16rem] xl:w-[24rem] rounded-lg" />
-      <div class="max-w-lg text-xl">
+      <img
+        src="/girl.png"
+        class="w-[16rem] mx-auto lg:mx-0 xl:w-[24rem] rounded-lg"
+      />
+      <div class="md:max-w-lg lg:max-w-2xl text-xl">
         <div class="mt-4">
           <h1
-            class="text-3xl font-[Mini] md:text-5xl xl:text-6xl font-bold mb-8"
+            class="text-3xl text-center lg:text-start font-[Mini] md:text-5xl xl:text-6xl font-bold mb-8"
           >
             {
               currentLocale === "es" ? (
@@ -136,13 +139,13 @@ const i18n = getI18N({ currentLocale });
         {
           currentLocale === "es" ? (
             <>
-              <p class="mb-4 aboutme">
+              <p class="md:text-2xl mb-4 aboutme">
                 <span>Desarrolladora Junior</span>, con muchas ganas de aprender
                 más cada día y decidida a lograr algo grandioso en el futuro
                 como
                 <span>Desarrolladora Web</span>.
               </p>
-              <p class="aboutme">
+              <p class="md:text-2xl aboutme">
                 Hace poco terminé el primer año del{" "}
                 <span>Ciclo Formativo de Grado Medio SMR</span>y actualmente voy
                 por el segundo año disfrutando mucho de la experiencia de
@@ -151,12 +154,12 @@ const i18n = getI18N({ currentLocale });
             </>
           ) : (
             <>
-              <p class="mb-4 aboutme">
+              <p class="md:text-2xl aboutme mb-4">
                 <span>Junior Developer</span>, eager to learn more every day and
                 determined to achieve something great in the future as a{" "}
                 <span>Web Developer</span>.
               </p>
-              <p class="aboutme">
+              <p class="md:text-2xl aboutme">
                 I recently finished the first year of the{" "}
                 <span>Intermediate VET MSN</span> and I am currently in the
                 second year enjoying the experience of learning and growing.
