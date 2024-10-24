@@ -161,4 +161,13 @@ const i18n = getI18N({ currentLocale });
     border-radius: 10px;
     background-color: #b393d6;
   }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    appearance: none !important;
+    background-color: transparent !important;
+    color: inherit !important;
+    box-shadow: 0 0 0px 1000px #fafaff inset !important; /* Cambia 'white' por el color que desees */
+  }
 </style>
