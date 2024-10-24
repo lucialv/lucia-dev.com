@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import { getI18N } from "../i18n";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
+
+import Form from "../components/Form.tsx";
 ---
 
 <Layout title={i18n.SEO.TITLE} description={i18n.SEO.DESCRIPTION}>
@@ -147,8 +149,8 @@ const i18n = getI18N({ currentLocale });
               </p>
               <p class="md:text-2xl aboutme">
                 Hace poco terminé el primer año del{" "}
-                <span>Ciclo Formativo de Grado Medio SMR</span> y actualmente voy
-                por el segundo año disfrutando mucho de la experiencia de
+                <span>Ciclo Formativo de Grado Medio SMR</span> y actualmente
+                voy por el segundo año disfrutando mucho de la experiencia de
                 aprender y crecer.
               </p>
             </>
@@ -306,100 +308,7 @@ const i18n = getI18N({ currentLocale });
     </div>
     <div class="flex items-center justify-center">
       <div class="mx-auto w-full max-w-[550px]">
-        <form action="https://formbold.com/s/3ZjWp" method="POST">
-          <div class="mb-5 max-w-[200px]">
-            <label
-              for="name"
-              class="mb-3 block text-base font-medium text-black"
-            >
-              {i18n.FULL_NAME}
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              required
-              placeholder="Lucia"
-              class="w-full rounded-md border bg-base-100 border-[#e0e0e0] px-4 py-3 text-base font-medium text-black placeholder-[#6B7280] outline-none focus:border-secondary focus:shadow-sm focus:shadow-secondary/40"
-            />
-          </div>
-          <div class="mb-5 max-w-[300px]">
-            <label
-              for="email"
-              class="mb-3 block text-base font-medium text-black"
-            >
-              {i18n.EMAIL}
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              required
-              placeholder={i18n.EMAIL_PLACEHOLDER}
-              class="plac w-full rounded-md border bg-base-100 border-[#e0e0e0] px-4 py-3 text-base font-medium text-black placeholder-[#6B7280] outline-none focus:border-secondary focus:shadow-sm focus:shadow-secondary/40"
-            />
-          </div>
-          <div class="mb-5 max-w-[400px]">
-            <label
-              for="subject"
-              class="mb-3 block text-base font-medium text-black"
-            >
-              {i18n.SUBJECT}
-            </label>
-            <input
-              type="text"
-              name="subject"
-              id="subject"
-              required
-              placeholder={i18n.SUBJECT_PLACEHOLDER}
-              class="w-full rounded-md border bg-base-100 border-[#e0e0e0] px-4 py-3 text-base font-medium text-black placeholder-[#6B7280] outline-none focus:border-secondary focus:shadow-sm focus:shadow-secondary/40"
-            />
-          </div>
-          <div class="mb-5">
-            <label
-              for="message"
-              class="mb-3 block text-base font-medium text-black"
-            >
-              {i18n.MESSAGE}
-            </label>
-            <textarea
-              rows="4"
-              name="message"
-              id="message"
-              required
-              placeholder={i18n.MESSAGE_PLACEHOLDER}
-              class="w-full resize-none rounded-md border bg-base-100 border-[#e0e0e0] px-4 py-3 text-base font-medium text-black placeholder-[#6B7280] outline-none focus:border-secondary focus:shadow-sm focus:shadow-secondary/40"
-            ></textarea>
-          </div>
-          <div>
-            <button
-              class="group relative inline-flex items-center justify-center overflow-hidden rounded-full border-2 border-secondary p-4 px-6 py-3 font-medium drop-shadow-[0_0_0.6rem_#b393d670] transition duration-300 ease-out"
-            >
-              <span
-                class="ease absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center bg-secondary text-white duration-300 group-hover:translate-x-0"
-              >
-                <svg
-                  class="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-              </span>
-              <span
-                class="ease absolute flex h-full w-full transform items-center justify-center text-black transition-all duration-300 group-hover:translate-x-full"
-                >{i18n.SEND}</span
-              >
-              <span class="invisible relative">{i18n.SEND}</span>
-            </button>
-          </div>
-        </form>
+        <Form client:only="react" />
       </div>
     </div>
   </div>
@@ -410,7 +319,6 @@ const i18n = getI18N({ currentLocale });
     var navElement = document.querySelector(".scrollDown") as HTMLElement;
     if (!navElement) return;
 
-    //change opacity of the navElement but smoother, first to 0,9 then to 0,8 then to 0,7 and so on to 0
     var scrollValue = window.scrollY;
     var opacityValue = 0.9 - scrollValue / 600;
     navElement.style.opacity = opacityValue.toString();
