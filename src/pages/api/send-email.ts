@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 import type { APIRoute } from "astro";
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY); // Asegúrate de usar tu clave API
+const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 export const POST: APIRoute = async ({ request }) => {
   try {
