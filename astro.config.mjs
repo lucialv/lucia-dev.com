@@ -5,10 +5,13 @@ import sitemap from "@astrojs/sitemap";
 
 import react from "@astrojs/react";
 
+import vercel from "@astrojs/vercel/serverless";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://lucia-dev.com",
   output: "server",
+
   integrations: [
     tailwind(),
     sitemap({
@@ -22,6 +25,7 @@ export default defineConfig({
     }),
     react(),
   ],
+
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],
@@ -29,4 +33,6 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+
+  adapter: vercel(),
 });
