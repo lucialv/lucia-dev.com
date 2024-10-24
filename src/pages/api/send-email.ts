@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 import type { APIRoute } from "astro";
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
+const resend = new Resend("re_TbLeV9BG_MAULaAwxThdhsfLxP6BP9n2o"); // Asegúrate de usar tu clave API
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -22,23 +22,51 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Enviar el correo usando Resend
-    const { data: resendData, error } = await resend.emails.send({
-      from: "Your Company <noreply@lucia-dev.com>",
-      to: [email],
-      subject,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Message:</strong> ${message}</p>`,
+    // Enviar correo con toda la información a tu correo
+    const { error: myError } = await resend.emails.send({
+      from: "Lucía Álvarez <noreply@lucia-dev.com>",
+      to: ["lucia.alvrzt@gmail.com"],
+      subject: `Nuevo mensaje de ${name} - ${subject}`,
+      html: `
+        <p><strong>Nombre:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Asunto:</strong> ${subject}</p>
+        <p><strong>Mensaje:</strong></p>
+        <p>${message}</p>
+      `,
     });
 
-    if (error) {
-      console.error("Error al enviar el correo:", error);
+    if (myError) {
+      console.error("Error al enviar el correo a ti:", myError);
       return new Response(
-        JSON.stringify({ message: "Error al enviar el correo." }),
+        JSON.stringify({ message: "Error al enviarte el correo." }),
         { status: 500 },
       );
     }
 
-    console.log("Correo enviado con éxito:", resendData);
+    // Enviar una copia simple al usuario
+    const { error: userError } = await resend.emails.send({
+      from: "Lucía Álvarez <noreply@lucia-dev.com>",
+      to: [email],
+      subject: `Copia de tu mensaje: ${subject}`,
+      html: `
+        <p>Hola ${name},</p>
+        <p>Gracias por tu mensaje. Aquí tienes una copia de lo que me enviaste:</p>
+        <p><strong>Asunto:</strong> ${subject}</p>
+        <p><strong>Mensaje:</strong></p>
+        <p>${message}</p>
+        <p>Me pondré en contacto contigo pronto.</p>
+      `,
+    });
+
+    if (userError) {
+      console.error("Error al enviar el correo al usuario:", userError);
+      return new Response(
+        JSON.stringify({ message: "Error al enviar la copia al usuario." }),
+        { status: 500 },
+      );
+    }
+
     return new Response(
       JSON.stringify({ message: "¡Correo enviado exitosamente!" }),
       { status: 200 },
