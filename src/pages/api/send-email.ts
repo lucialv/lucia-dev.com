@@ -24,7 +24,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Enviar el correo usando Resend
     const { data: resendData, error } = await resend.emails.send({
-      from: "Your Company <noreply@yourdomain.com>",
+      from: "Your Company <noreply@lucia-dev.com>",
       to: [email],
       subject,
       html: `<p><strong>Name:</strong> ${name}</p><p><strong>Message:</strong> ${message}</p>`,
