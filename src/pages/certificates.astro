@@ -1,0 +1,24 @@
+---
+import CertificatesPage from "../components/Certificates.tsx";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/icon.png" />
+    <title>Certificados</title>
+    <style>
+      @font-face {
+        font-family: "Mini";
+        font-display: swap;
+        font-style: normal;
+        src: url(/src/fonts/mini-wakuwaku-maru.woff2) format("woff2");
+      }
+    </style>
+  </head>
+  <body>
+    <CertificatesPage client:only="react" />
+  </body>
+</html>

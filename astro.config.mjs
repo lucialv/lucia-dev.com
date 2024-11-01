@@ -11,7 +11,6 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   site: "https://lucia-dev.com",
   output: "server",
-
   integrations: [
     tailwind(),
     sitemap({
