@@ -4,6 +4,7 @@ import { getI18N } from "../i18n";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 
+import Projects from "../components/Projects.astro";
 import Form from "../components/Form.tsx";
 ---
 
@@ -172,6 +173,8 @@ import Form from "../components/Form.tsx";
       </div>
     </div>
   </div>
+  <div class="divider flex mx-auto max-w-xs"></div>
+  <Projects />
   <div class="divider flex mx-auto max-w-xs"></div>
   <div class="mt-20 md:mt-[150px] mb-32">
     <div class="flex items-center justify-center mb-12 2xl:mb-20">

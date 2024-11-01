@@ -1,0 +1,66 @@
+---
+import { getI18N } from "../i18n";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+// Lista de proyectos de GitHub
+const projects = [
+  //   {
+  //     name: "Bot de Discord",
+  //     description: "mola mucho el bot",
+  //     link: "https://github.com/lucialv/bot-discord",
+  //     image: "/bot-project.png",
+  //   },
+  //   {
+  //     name: "PokeAPI App",
+  //     description: "mola demasiado la app",
+  //     link: "https://github.com/lucialv/pokeapi-app",
+  //     image: "/pokeapi-project.png",
+  //   },
+  {
+    name: "Anime Gifs API",
+    description:
+      "This is a simple API with endpoints for anime gifs. The API is hosted on Vercel and the gifs are stored on Cloudflare R2 Buckets.",
+    link: "https://github.com/lucialv/anime-api-cdn",
+    image: "/AnimeGifs.png  ",
+  },
+];
+---
+
+<section id="projects" class="p-16 text-center">
+  <div class="flex items-center justify-center mb-12 2xl:mb-20">
+    <h2
+      class="text-3xl font-[Mini] md:text-5xl lg:text-6xl font-bold text-[#0b0517] text-center"
+    >
+      My projects
+    </h2>
+    <img
+      src="/star_purple.gif"
+      alt={i18n.ALT.DOCUMENT}
+      draggable="false"
+      class="ml-4 h-10 md:h-16"
+    />
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {
+      projects.map((project) => (
+        <div class="project-card border-2 rounded-lg p-6 hover:shadow-lg transition-shadow">
+          <img
+            src={project.image}
+            alt={project.name}
+            class="mb-4 w-full rounded-lg"
+          />
+          <h3 class="text-2xl font-semibold mb-2">{project.name}</h3>
+          <p class="mb-4">{project.description}</p>
+          <a
+            href={project.link}
+            target="_blank"
+            class="inline-block py-2 px-4 bg-primary text-white rounded-lg hover:bg-secondary"
+          >
+            View on Github 🚀
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</section>
