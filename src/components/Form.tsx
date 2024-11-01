@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { getI18N } from "../i18n";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -9,6 +9,11 @@ export default function ContactForm({ currentLocale }) {
     email: "",
     message: "",
   });
+
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const subjectRef = useRef(null);
+  const messageRef = useRef(null);
 
   function validateForm(formData) {
     let formIsValid = true;
@@ -93,6 +98,10 @@ export default function ContactForm({ currentLocale }) {
         if (!emailData.success) throw new Error(i18n.FORM.ERROR);
 
         setResponseMessage(i18n.FORM.SUCCESS);
+        nameRef.current.value = "";
+        emailRef.current.value = "";
+        subjectRef.current.value = "";
+        messageRef.current.value = "";
       })(),
       {
         loading: i18n.FORM.LOADING,
@@ -124,6 +133,7 @@ export default function ContactForm({ currentLocale }) {
             id="name"
             placeholder={i18n.FORM.NAME_PLACEHOLDER}
             className="input input-bordered w-full max-w-xs"
+            ref={nameRef}
           />
         </label>
 
@@ -137,6 +147,7 @@ export default function ContactForm({ currentLocale }) {
             id="email"
             placeholder={i18n.FORM.EMAIL_PLACEHOLDER}
             className="input input-bordered w-full max-w-xs"
+            ref={emailRef}
           />
         </label>
 
@@ -150,6 +161,7 @@ export default function ContactForm({ currentLocale }) {
             id="subject"
             placeholder={i18n.FORM.SUBJECT_PLACEHOLDER}
             className="input input-bordered w-full max-w-xs"
+            ref={subjectRef}
           />
         </label>
 
@@ -162,6 +174,7 @@ export default function ContactForm({ currentLocale }) {
             name="message"
             id="message"
             className="textarea resize-none textarea-bordered textarea-lg bg-[#fafaff] w-full h-32 p-3 rounded-lg"
+            ref={messageRef}
           ></textarea>
         </label>
 
