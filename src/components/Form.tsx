@@ -16,45 +16,45 @@ export default function ContactForm({ currentLocale }) {
 
     const message = formData.get("message");
     if (message.length === 0) {
-      newErrors.message = "El mensaje es requerido.";
-      toast.error("El mensaje es requerido.");
+      newErrors.message = i18n.FORM.ERROR_NAME_REQUIRED;
+      toast.error(i18n.FORM.ERROR_NAME_REQUIRED);
       formIsValid = false;
     } else if (message.length < 30) {
-      newErrors.message = "El mensaje debe tener al menos 30 caracteres.";
-      toast.error("El mensaje debe tener al menos 30 caracteres.");
+      newErrors.message = i18n.FORM.ERROR_MESSAGE_LENGTH;
+      toast.error(i18n.FORM.ERROR_MESSAGE_LENGTH);
       formIsValid = false;
     }
     const subjet = formData.get("subject");
     if (subjet.length === 0) {
-      newErrors.message = "El asunto es requerido.";
-      toast.error("El asunto es requerido.");
+      newErrors.message = i18n.FORM.ERROR_SUBJECT_REQUIRED;
+      toast.error(i18n.FORM.ERROR_SUBJECT_REQUIRED);
       formIsValid = false;
     } else if (subjet.length < 5) {
-      newErrors.message = "El asunto debe tener al menos 5 caracteres.";
-      toast.error("El asunto debe tener al menos 5 caracteres.");
+      newErrors.message = i18n.FORM.ERROR_SUBJECT_LENGTH;
+      toast.error(i18n.FORM.ERROR_SUBJECT_LENGTH);
       formIsValid = false;
     }
 
     const email = formData.get("email");
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (email.length === 0) {
-      newErrors.email = "El email es requerido.";
-      toast.error("El email es requerido.");
+      newErrors.email = i18n.FORM.ERROR_EMAIL_REQUIRED;
+      toast.error(i18n.FORM.ERROR_EMAIL_REQUIRED);
       formIsValid = false;
     } else if (!emailRegex.test(email)) {
-      newErrors.email = "El email no es válido.";
-      toast.error("El email no es válido.");
+      newErrors.email = i18n.FORM.ERROR_EMAIL_VALIDATE;
+      toast.error(i18n.FORM.ERROR_EMAIL_VALIDATE);
       formIsValid = false;
     }
 
     const name = formData.get("name");
     if (name.length === 0) {
-      newErrors.message = "El nombre es requerido.";
-      toast.error("El nombre es requerido.");
+      newErrors.message = i18n.FORM.ERROR_NAME_REQUIRED;
+      toast.error(i18n.FORM.ERROR_NAME_REQUIRED);
       formIsValid = false;
     } else if (name.length < 2) {
-      newErrors.message = "El nombre debe tener al menos 2 caracteres.";
-      toast.error("El nombre debe tener al menos 2 caracteres.");
+      newErrors.message = i18n.FORM.ERROR_NAME_LENGTH;
+      toast.error(i18n.FORM.ERROR_NAME_LENGTH);
       formIsValid = false;
     }
 
@@ -83,22 +83,21 @@ export default function ContactForm({ currentLocale }) {
           body: formData,
         });
         const recaptchaData = await recaptchaResponse.json();
-        if (!recaptchaData.success)
-          throw new Error("Error en la verificación de reCAPTCHA.");
+        if (!recaptchaData.success) throw new Error(i18n.FORM.ERROR_RECAPTCHA);
 
         const emailResponse = await fetch("/api/send-email", {
           method: "POST",
           body: formData,
         });
         const emailData = await emailResponse.json();
-        if (!emailData.success) throw new Error("Error al enviar el mensaje.");
+        if (!emailData.success) throw new Error(i18n.FORM.ERROR);
 
-        setResponseMessage("Mensaje enviado con éxito.");
+        setResponseMessage(i18n.FORM.SUCCESS);
       })(),
       {
-        loading: "Enviando...",
-        success: "¡Mensaje enviado con éxito!",
-        error: "Ocurrió un error al enviar el mensaje.",
+        loading: i18n.FORM.LOADING,
+        success: i18n.FORM.SUCCESS,
+        error: i18n.FORM.ERROR,
       },
     );
   }
@@ -123,7 +122,7 @@ export default function ContactForm({ currentLocale }) {
             type="text"
             name="name"
             id="name"
-            placeholder="Name"
+            placeholder={i18n.FORM.NAME_PLACEHOLDER}
             className="input input-bordered w-full max-w-xs"
           />
         </label>
@@ -136,7 +135,7 @@ export default function ContactForm({ currentLocale }) {
             type="text"
             name="email"
             id="email"
-            placeholder="Email"
+            placeholder={i18n.FORM.EMAIL_PLACEHOLDER}
             className="input input-bordered w-full max-w-xs"
           />
         </label>
@@ -149,7 +148,7 @@ export default function ContactForm({ currentLocale }) {
             type="text"
             name="subject"
             id="subject"
-            placeholder="Subject"
+            placeholder={i18n.FORM.SUBJECT_PLACEHOLDER}
             className="input input-bordered w-full max-w-xs"
           />
         </label>
@@ -159,7 +158,7 @@ export default function ContactForm({ currentLocale }) {
           className="form-control mb-4 mx-auto w-full max-w-xs"
         >
           <textarea
-            placeholder="Tu mensaje aquí..."
+            placeholder={i18n.FORM.MESSAGE_PLACEHOLDER}
             name="message"
             id="message"
             className="textarea resize-none textarea-bordered textarea-lg bg-[#fafaff] w-full h-32 p-3 rounded-lg"
