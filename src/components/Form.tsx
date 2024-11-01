@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getI18N } from "../i18n";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function ContactForm({ currentLocale }) {
   const i18n = getI18N({ currentLocale });
@@ -9,22 +10,51 @@ export default function ContactForm({ currentLocale }) {
     message: "",
   });
 
-  function validateForm(formData: FormData) {
+  function validateForm(formData) {
     let formIsValid = true;
     let newErrors = { email: "", message: "" };
 
-    // Validación del email
-    const email = formData.get("email") as string;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      newErrors.email = "El email no es válido.";
+    const message = formData.get("message");
+    if (message.length === 0) {
+      newErrors.message = "El mensaje es requerido.";
+      toast.error("El mensaje es requerido.");
+      formIsValid = false;
+    } else if (message.length < 30) {
+      newErrors.message = "El mensaje debe tener al menos 30 caracteres.";
+      toast.error("El mensaje debe tener al menos 30 caracteres.");
+      formIsValid = false;
+    }
+    const subjet = formData.get("subject");
+    if (subjet.length === 0) {
+      newErrors.message = "El asunto es requerido.";
+      toast.error("El asunto es requerido.");
+      formIsValid = false;
+    } else if (subjet.length < 5) {
+      newErrors.message = "El asunto debe tener al menos 5 caracteres.";
+      toast.error("El asunto debe tener al menos 5 caracteres.");
       formIsValid = false;
     }
 
-    // Validación del mensaje
-    const message = formData.get("message") as string;
-    if (message.length < 30) {
-      newErrors.message = "El mensaje debe tener al menos 30 carácteres.";
+    const email = formData.get("email");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email.length === 0) {
+      newErrors.email = "El email es requerido.";
+      toast.error("El email es requerido.");
+      formIsValid = false;
+    } else if (!emailRegex.test(email)) {
+      newErrors.email = "El email no es válido.";
+      toast.error("El email no es válido.");
+      formIsValid = false;
+    }
+
+    const name = formData.get("name");
+    if (name.length === 0) {
+      newErrors.message = "El nombre es requerido.";
+      toast.error("El nombre es requerido.");
+      formIsValid = false;
+    } else if (name.length < 2) {
+      newErrors.message = "El nombre debe tener al menos 2 caracteres.";
+      toast.error("El nombre debe tener al menos 2 caracteres.");
       formIsValid = false;
     }
 
@@ -32,51 +62,47 @@ export default function ContactForm({ currentLocale }) {
     return formIsValid;
   }
 
-  async function submit(e: React.FormEvent<HTMLFormElement>) {
+  async function submit(e) {
     e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
+    const formData = new FormData(e.target);
 
-    // Obtener el token de reCAPTCHA
     const token = await grecaptcha.execute(
       "6LdcWmsqAAAAAP2HNw8DU_6BjOmIdyaDvrQ7qFYK",
-      {
-        action: "submit",
-      },
+      { action: "submit" },
     );
-    formData.append("recaptcha", token); // Añadir el token al FormData
+    formData.append("recaptcha", token);
 
-    // Si las validaciones fallan, no se envía el formulario
     if (!validateForm(formData)) {
       return;
     }
 
-    // Enviar el token a la API de reCAPTCHA para verificarlo
-    const recaptchaResponse = await fetch("/api/re-captcha", {
-      method: "POST",
-      body: formData,
-    });
+    toast.promise(
+      (async () => {
+        const recaptchaResponse = await fetch("/api/re-captcha", {
+          method: "POST",
+          body: formData,
+        });
+        const recaptchaData = await recaptchaResponse.json();
+        if (!recaptchaData.success)
+          throw new Error("Error en la verificación de reCAPTCHA.");
 
-    const recaptchaData = await recaptchaResponse.json();
-    if (!recaptchaData.success) {
-      setResponseMessage("Error en la verificación de reCAPTCHA.");
-      return;
-    }
+        const emailResponse = await fetch("/api/send-email", {
+          method: "POST",
+          body: formData,
+        });
+        const emailData = await emailResponse.json();
+        if (!emailData.success) throw new Error("Error al enviar el mensaje.");
 
-    // Enviar el correo a la API de send-email
-    const emailResponse = await fetch("/api/send-email", {
-      method: "POST",
-      body: formData,
-    });
-
-    const emailData = await emailResponse.json();
-    if (emailData.success) {
-      setResponseMessage("Mensaje enviado con éxito.");
-    } else {
-      setResponseMessage("Error al enviar el mensaje.");
-    }
+        setResponseMessage("Mensaje enviado con éxito.");
+      })(),
+      {
+        loading: "Enviando...",
+        success: "¡Mensaje enviado con éxito!",
+        error: "Ocurrió un error al enviar el mensaje.",
+      },
+    );
   }
 
-  // Cargar el script de reCAPTCHA
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -88,8 +114,11 @@ export default function ContactForm({ currentLocale }) {
 
   return (
     <div className="flex justify-center items-center">
-      <form onSubmit={submit} className="p-8 rounded-xl max-w-lg w-full">
-        <label htmlFor="name" className="form-control mx-auto w-full max-w-xs">
+      <form onSubmit={submit} className="p-8 rounded-x l max-w-lg w-full">
+        <label
+          htmlFor="name"
+          className="form-control mb-4 mx-auto w-full max-w-xs"
+        >
           <input
             type="text"
             name="name"
@@ -97,12 +126,12 @@ export default function ContactForm({ currentLocale }) {
             placeholder="Name"
             className="input input-bordered w-full max-w-xs"
           />
-          <div className="label">
-            <span className="h-[12px]"></span>
-          </div>
         </label>
 
-        <label htmlFor="email" className="form-control mx-auto w-full max-w-xs">
+        <label
+          htmlFor="email"
+          className="form-control mb-4 mx-auto w-full max-w-xs"
+        >
           <input
             type="text"
             name="email"
@@ -110,20 +139,11 @@ export default function ContactForm({ currentLocale }) {
             placeholder="Email"
             className="input input-bordered w-full max-w-xs"
           />
-          <div className="label">
-            <span className="h-[12px]">
-              {errors.email ? (
-                <p className="text-red-500 text-xs">{errors.email}</p>
-              ) : (
-                <p className="text-red-500 hidden">El email no es válido.</p>
-              )}
-            </span>
-          </div>
         </label>
 
         <label
           htmlFor="subject"
-          className="form-control mx-auto w-full max-w-xs"
+          className="form-control mb-4 mx-auto w-full max-w-xs"
         >
           <input
             type="text"
@@ -132,14 +152,11 @@ export default function ContactForm({ currentLocale }) {
             placeholder="Subject"
             className="input input-bordered w-full max-w-xs"
           />
-          <div className="label">
-            <span className="h-[12px]"></span>
-          </div>
         </label>
 
         <label
           htmlFor="message"
-          className="form-control mx-auto w-full max-w-xs"
+          className="form-control mb-4 mx-auto w-full max-w-xs"
         >
           <textarea
             placeholder="Tu mensaje aquí..."
@@ -147,15 +164,6 @@ export default function ContactForm({ currentLocale }) {
             id="message"
             className="textarea resize-none textarea-bordered textarea-lg bg-[#fafaff] w-full h-32 p-3 rounded-lg"
           ></textarea>
-          <div className="label">
-            <span className="h-[16px]">
-              {errors.message ? (
-                <p className="text-red-500 text-xs">{errors.message}</p>
-              ) : (
-                <p className="text-red-500 hidden">El mensaje no es válido.</p>
-              )}
-            </span>
-          </div>
         </label>
 
         <div className="flex items-center justify-center">
@@ -185,11 +193,17 @@ export default function ContactForm({ currentLocale }) {
             <span className="invisible relative">{i18n.SEND}</span>
           </button>
         </div>
-
-        {responseMessage && (
-          <p className="mt-4 text-center text-green-600">{responseMessage}</p>
-        )}
       </form>
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          style: {
+            zIndex: 9999,
+            minWidth: "250px",
+          },
+        }}
+      />
     </div>
   );
 }

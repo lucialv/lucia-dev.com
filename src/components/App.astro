@@ -6,9 +6,19 @@ const i18n = getI18N({ currentLocale });
 
 import Projects from "../components/Projects.astro";
 import Form from "../components/Form.tsx";
+import { Toaster } from "react-hot-toast";
 ---
 
 <Layout title={i18n.SEO.TITLE} description={i18n.SEO.DESCRIPTION}>
+  <Toaster
+    position="top-right"
+    reverseOrder={false}
+    toastOptions={{
+      style: {
+        zIndex: 9999,
+      },
+    }}
+  />
   <div
     id="home"
     class="container sm:px-8 right-0 mx-auto md:mt-28 flex md:flex-row md:py-16 flex-col items-center md:items-start"
