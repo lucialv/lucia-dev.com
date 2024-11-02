@@ -1,10 +1,16 @@
-import SpainFlag from "../components/flags/Spain.astro";
-import UnitedStatesFlag from "../components/flags/UnitedStates.astro";
+import SpainFlag from "@/components/flags/Spain.astro";
+import CataloniaFlag from "@/components/flags/Catalonia.astro";
+import UnitedStatesFlag from "@/components/flags/UnitedStates.astro";
 
 export const LANGUAGES: Record<
   string,
   { code: string; name: string; flag: typeof SpainFlag }
 > = {
+  ca: {
+    code: "ca",
+    name: "Català",
+    flag: CataloniaFlag,
+  },
   en: {
     code: "en",
     name: "English",
@@ -23,27 +29,23 @@ export const showDefaultLang = false;
 export const ui = {
   es: {
     "nav.inicio": "Inicio",
-    "nav.legal": "Aviso Legal",
-    "nav.privacidad": "Privacidad",
-    "nav.cookies": "Cookies",
   },
   en: {
     "nav.inicio": "Home",
-    "nav.legal": "Legal Notice",
-    "nav.privacidad": "Privacy",
-    "nav.cookies": "Cookies",
+  },
+  ca: {
+    "nav.inicio": "Inici",
   },
 } as const;
 
 export const routes = {
   es: {
-    "aviso-legal": "aviso-legal",
-    privacidad: "privacidad",
-    cookies: "cookies",
+    info: "informacion",
   },
   en: {
-    "aviso-legal": "legal-notice",
-    privacidad: "privacy",
-    cookies: "cookies",
+    info: "information",
+  },
+  ca: {
+    info: "informacio",
   },
 };

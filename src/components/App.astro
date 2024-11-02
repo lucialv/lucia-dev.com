@@ -31,7 +31,15 @@ import { Toaster } from "react-hot-toast";
           class="pt-16 text-3xl md:pt-0 md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl"
         >
           <h1>
-            {i18n.HIIAM}
+            {
+              currentLocale === "ca" ? (
+                <span>
+                  Hola, s<span class="font-[Potato]">ó</span>c
+                </span>
+              ) : (
+                i18n.HIIAM
+              )
+            }
             <span
               class="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text font-bold text-transparent"
               >Luc<span class="font-[Potato]">í</span>a
@@ -44,7 +52,15 @@ import { Toaster } from "react-hot-toast";
           <h1
             class="md:min-w-[325px] lg:min-w-[520px] xl:min-w-[790px] inline-block"
           >
-            {i18n.ANDIM}
+            {
+              currentLocale === "ca" ? (
+                <span>
+                  I s<span class="font-[Potato]">ó</span>c
+                </span>
+              ) : (
+                i18n.ANDIM
+              )
+            }
             <span
               class="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text font-bold text-transparent"
               >{i18n.DEVELOPER}
@@ -181,6 +197,10 @@ import { Toaster } from "react-hot-toast";
                 <span>
                   Sobre m<span class="font-[Potato]">í</span>
                 </span>
+              ) : currentLocale === "ca" ? (
+                <span>
+                  Sobre m<span class="font-[Potato]">i</span>
+                </span>
               ) : (
                 i18n.ABOUT_ME.TITLE
               )
@@ -193,14 +213,27 @@ import { Toaster } from "react-hot-toast";
               <p class="md:text-2xl mb-4 aboutme">
                 <span>Desarrolladora Junior</span>, con muchas ganas de aprender
                 más cada día y decidida a lograr algo grandioso en el futuro
-                como
-                <span>Desarrolladora Web</span>.
+                como <span>Desarrolladora Web</span>.
               </p>
               <p class="md:text-2xl aboutme">
                 Hace poco terminé el primer año del{" "}
                 <span>Ciclo Formativo de Grado Medio SMR</span> y actualmente
                 voy por el segundo año disfrutando mucho de la experiencia de
                 aprender y crecer.
+              </p>
+            </>
+          ) : currentLocale === "ca" ? (
+            <>
+              <p class="md:text-2xl mb-4 aboutme">
+                <span>Desenvolupadora Junior</span>, amb moltes ganes d'aprendre
+                més cada dia i decidida a aconseguir alguna cosa gran en el
+                futur com a <span>Desenvolupadora Web</span>.
+              </p>
+              <p class="md:text-2xl aboutme">
+                Fa poc vaig acabar el primer any del{" "}
+                <span>Cicle Formatiu de Grau Mitjà SMX</span> i actualment estic
+                en el segon any gaudint molt de l'experiència d'aprendre i
+                créixer.
               </p>
             </>
           ) : (
