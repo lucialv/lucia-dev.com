@@ -7,6 +7,7 @@ const i18n = getI18N({ currentLocale });
 import Projects from "../components/Projects.astro";
 import Form from "../components/Form.tsx";
 import { Toaster } from "react-hot-toast";
+import ImageModal from "../components/ViewGrades.tsx";
 ---
 
 <Layout title={i18n.SEO.TITLE} description={i18n.SEO.DESCRIPTION}>
@@ -66,12 +67,6 @@ import { Toaster } from "react-hot-toast";
               >{i18n.DEVELOPER}
             </span>
           </h1>
-          <img
-            src="/typing.gif"
-            alt={i18n.ALT.SYLVEON}
-            draggable="false"
-            class="ml-2 h-8 lg:h-14 md:h-10 xl:h-20 w-auto"
-          />
         </div>
       </div>
       <div class="flex justify-center gap-x-4 pt-10 font-bold">
@@ -320,7 +315,10 @@ import { Toaster } from "react-hot-toast";
           data-tip={i18n.MSN_VET_PROGRAM_DESCRIPTION}
         >
           {i18n.FIRST_YEAR}
-          {i18n.MSN_VET_PROGRAM}
+          {i18n.MSN_VET_PROGRAM} - <ImageModal
+            imageUrl="/View-Grades.png"
+            client:only="react"
+          />
         </div>
         <hr class="bg-primary" />
       </li>
