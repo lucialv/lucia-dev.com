@@ -3,9 +3,10 @@ import { X } from "lucide-react";
 
 type ImageModalProps = {
   imageUrl: string;
+  translate: string;
 };
 
-const ImageModal: React.FC<ImageModalProps> = ({ imageUrl }) => {
+const ImageModal: React.FC<ImageModalProps> = ({ imageUrl, translate }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => setIsOpen(true);
