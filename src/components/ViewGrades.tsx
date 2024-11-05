@@ -8,13 +8,23 @@ type ImageModalProps = {
 
 const ImageModal: React.FC<ImageModalProps> = ({ imageUrl, translate }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isPrefetched, setIsPrefetched] = useState(false);
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
+  const handleMouseEnter = () => {
+    if (!isPrefetched) {
+      const img = new Image();
+      img.src = imageUrl;
+      setIsPrefetched(true);
+    }
+  };
+
   return (
     <>
       <span
+        onMouseEnter={handleMouseEnter}
         onClick={openModal}
         className="underline text-[#983aff] cursor-pointer"
       >

@@ -151,18 +151,17 @@ const i18n = getI18N({ currentLocale });
     font-weight: 600;
   }
 
-  ::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background-color: #f5f5f5;
+  /* Para aplicar estilos a la barra de desplazamiento en Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #b393d6 #fafaff;
   }
-  ::-webkit-scrollbar {
-    width: 12px;
-    background-color: #f5f5f5;
+
+  *:hover {
+    scrollbar-width: thin !important;
+    scrollbar-color: #b393d6 #fafaff !important;
   }
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: #b393d6;
-  }
+
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
