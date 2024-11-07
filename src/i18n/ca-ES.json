@@ -2,6 +2,7 @@
   "TEST": "Fes-me clic!",
   "MADE_WITH": "Fet amb",
   "BY": "per",
+  "HI": "Hola",
   "HIIAM": "Hola, sóc",
   "ANDIM": "i sóc",
   "EDUCATION": "Estudis",
@@ -61,5 +62,12 @@
     "LUCIA": "Foto de Lucía Álvarez, una noia amb el cabell curt i una samarreta de color rosa.",
     "LUCIA_LOGO": "Logotip de Lucía Álvarez, una tipografia amb el nom Lucía i un cor al final.",
     "DOCUMENT": "Il·lustració d'un document amb un segell d'aprovació."
+  },
+  "EMAIL_INBOX": {
+    "SUBHEADING": "Gràcies per posar-te en contacte amb mi! He rebut el teu missatge i em posaré en contacte amb tu al més aviat possible. Aquí tens una còpia del que m'has enviat:",
+    "FURTHER": "Si tens alguna pregunta o necessites més ajuda",
+    "FURTHER_TWO": "no dubtis en posar-te en contacte amb mi a",
+    "THANKS_FOR_THE_MESSAGE": "Gràcies pel teu missatge!",
+    "VIEW_THIS_EMAIL": "Mira aquest correu per veure la còpia del teu missatge enviat a Lucía Álvarez."
   }
 }

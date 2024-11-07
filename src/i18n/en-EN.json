@@ -2,6 +2,7 @@
   "TEST": "Click me!",
   "MADE_WITH": "Made with",
   "BY": "by",
+  "HI": "Hi",
   "HIIAM": "Hi I'm",
   "ANDIM": "and I'm a",
   "EDUCATION": "Studies",
@@ -61,5 +62,12 @@
     "LUCIA": "Photo of Lucía Álvarez, a girl with short hair and a pink t-shirt.",
     "LUCIA_LOGO": "Lucía Álvarez's logo, a typography with the name Lucía and a heart at the end.",
     "DOCUMENT": "Illustration of a document with an approval stamp."
+  },
+  "EMAIL_INBOX": {
+    "SUBHEADING": "Thank you for reaching out to me! I've received your message, and I'll get back to you as soon as possible. Here's a copy of what you sent me:",
+    "FURTHER": "If you have any questions or need further assistance",
+    "FURTHER_TWO": "please feel free to contact me at",
+    "THANKS_FOR_THE_MESSAGE": "Thanks for your message!",
+    "VIEW_THIS_EMAIL": "View this email to see the copy of your message sent to Lucía Álvarez."
   }
 }
