@@ -1,0 +1,30 @@
+---
+import REmail from "../components/Received-Email.tsx";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/icon.png" />
+    <title>Certificados</title>
+    <style>
+      @font-face {
+        font-family: "Mini";
+        font-display: swap;
+        font-style: normal;
+        src: url(/src/fonts/mini-wakuwaku-maru.woff2) format("woff2");
+      }
+    </style>
+  </head>
+  <body>
+    <REmail
+      name="Lucía Álvarez"
+      email="lucia@gmail.com"
+      subject="Te quiero mucho"
+      message="Hola lucia, me gustaria darte de todo lo que me digas bb"
+      client:only="react"
+    />
+  </body>
+</html>
