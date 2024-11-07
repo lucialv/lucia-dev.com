@@ -15,6 +15,13 @@ export default function ContactForm({ currentLocale }) {
   const subjectRef = useRef(null);
   const messageRef = useRef(null);
 
+  function getLanguageFromUrl() {
+    const path = window.location.pathname;
+    if (path.startsWith("/en")) return "en";
+    if (path.startsWith("/ca")) return "ca";
+    return "es";
+  }
+
   function validateForm(formData) {
     let formIsValid = true;
     let newErrors = { email: "", message: "" };
@@ -70,6 +77,9 @@ export default function ContactForm({ currentLocale }) {
   async function submit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
+
+    const language = getLanguageFromUrl();
+    formData.append("language", language);
 
     const token = await grecaptcha.execute(
       "6LdcWmsqAAAAAP2HNw8DU_6BjOmIdyaDvrQ7qFYK",

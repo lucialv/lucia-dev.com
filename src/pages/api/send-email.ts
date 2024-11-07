@@ -1,5 +1,8 @@
 import { Resend } from "resend";
+import React from "react";
 import type { APIRoute } from "astro";
+import Email from "../../components/Email.tsx";
+import { getI18N } from "../../i18n";
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
@@ -11,6 +14,9 @@ export const POST: APIRoute = async ({ request }) => {
     const email = data.get("email")?.toString() || "";
     const subject = data.get("subject")?.toString() || "";
     const message = data.get("message")?.toString() || "";
+    const idioma = data.get("language")?.toString() || "";
+    const verdadero = true;
+    const i18n = getI18N({ currentLocale: idioma });
 
     if (!name || !email || !subject || !message) {
       console.error("Campos faltantes:", { name, email, subject, message });
@@ -25,19 +31,20 @@ export const POST: APIRoute = async ({ request }) => {
 
     const { error: myError } = await resend.emails.send({
       from: "Lucía Álvarez <contact@lucia-dev.com>",
-      to: ["lucia.alvrzt@gmail.com"],
-      subject: `Nuevo mensaje de ${name} - ${subject}`,
-      html: `
-        <p><strong>Nombre:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Asunto:</strong> ${subject}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p>${message}</p>
-      `,
+      to: "lucia.alvrzt@gmail.com",
+      subject: `Mensaje recibido de ${name} - ${subject}`,
+      react: React.createElement(Email, {
+        name,
+        email,
+        subject,
+        message,
+        currentLocale: idioma,
+        enviado: !verdadero,
+      }),
     });
 
     if (myError) {
-      console.error("Error al enviar el correo a ti:", myError);
+      console.error("Error al enviarte el correo:", myError);
       return new Response(
         JSON.stringify({
           success: false,
@@ -50,15 +57,15 @@ export const POST: APIRoute = async ({ request }) => {
     const { error: userError } = await resend.emails.send({
       from: "Lucía Álvarez <contact@lucia-dev.com>",
       to: [email],
-      subject: `Copia de tu mensaje: ${subject}`,
-      html: `
-        <p>Hola ${name},</p>
-        <p>Gracias por tu mensaje. Aquí tienes una copia de lo que me enviaste:</p>
-        <p><strong>Asunto:</strong> ${subject}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p>${message}</p>
-        <p>Me pondré en contacto contigo pronto.</p>
-      `,
+      subject: i18n.EMAIL_INBOX.THANKS_FOR_THE_MESSAGE,
+      react: React.createElement(Email, {
+        name,
+        email,
+        subject,
+        message,
+        currentLocale: idioma,
+        enviado: verdadero,
+      }),
     });
 
     if (userError) {
