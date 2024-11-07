@@ -24,7 +24,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     const { error: myError } = await resend.emails.send({
-      from: "Lucía Álvarez <noreply@lucia-dev.com>",
+      from: "Lucía Álvarez <contact@lucia-dev.com>",
       to: ["lucia.alvrzt@gmail.com"],
       subject: `Nuevo mensaje de ${name} - ${subject}`,
       html: `
@@ -48,7 +48,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     const { error: userError } = await resend.emails.send({
-      from: "Lucía Álvarez <noreply@lucia-dev.com>",
+      from: "Lucía Álvarez <contact@lucia-dev.com>",
       to: [email],
       subject: `Copia de tu mensaje: ${subject}`,
       html: `
