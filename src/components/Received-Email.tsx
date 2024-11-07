@@ -36,10 +36,15 @@ const ReceivedEmail: React.FC<ReceivedEmailProps> = ({
       </Head>
       <Preview>{previewText}</Preview>
       <Tailwind>
-        <Body className="mx-auto bg-zinc-50 font-sans">
+        <Body className="mx-auto font-sans">
           <Container className="mx-auto my-[40px] max-w-2xl rounded p-4">
-            <Img src="/Logo.webp" width="130" alt="" className="mx-auto my-0" />
-
+            <Img
+              src="https://lucia-dev.com/Logo.webp"
+              width="130"
+              alt=""
+              className="mx-auto my-0"
+            />
+            <Hr className="my-4" />
             <Section className="mt-4">
               <Heading className="text-center text-2xl font-semibold text-purple-600">
                 Hi, {name}! 🌟

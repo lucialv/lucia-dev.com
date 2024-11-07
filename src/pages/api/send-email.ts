@@ -1,5 +1,7 @@
 import { Resend } from "resend";
+import React from "react";
 import type { APIRoute } from "astro";
+import ReceivedEmail from "../../components/Received-Email.tsx";
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
@@ -25,15 +27,14 @@ export const POST: APIRoute = async ({ request }) => {
 
     const { error: myError } = await resend.emails.send({
       from: "Lucía Álvarez <contact@lucia-dev.com>",
-      to: ["lucia.alvrzt@gmail.com"],
+      to: "lucia.alvrzt@gmail.com",
       subject: `Nuevo mensaje de ${name} - ${subject}`,
-      html: `
-        <p><strong>Nombre:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Asunto:</strong> ${subject}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p>${message}</p>
-      `,
+      react: React.createElement(ReceivedEmail, {
+        name,
+        email,
+        subject,
+        message,
+      }),
     });
 
     if (myError) {
