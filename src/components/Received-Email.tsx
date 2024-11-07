@@ -39,7 +39,7 @@ const ReceivedEmail: React.FC<ReceivedEmailProps> = ({
         <Body className="mx-auto font-sans">
           <Container className="mx-auto my-[40px] max-w-2xl rounded p-4">
             <Img
-              src="https://lucia-dev.com/Logo.webp"
+              src="https://raw.githubusercontent.com/lucialv/lucia-dev.com/refs/heads/main/public/logo-lucia.png"
               width="130"
               alt=""
               className="mx-auto my-0"
