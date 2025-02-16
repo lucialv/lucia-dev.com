@@ -26,7 +26,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ imageUrl, translate }) => {
       <span
         onMouseEnter={handleMouseEnter}
         onClick={openModal}
-        className="underline text-[#983aff] cursor-pointer"
+        className="underline text-primary cursor-pointer"
       >
         {translate}
       </span>

@@ -23,13 +23,6 @@ export default {
           neutral: "#221a33",
           "base-100": "#faf9fc",
         },
-        dark: {
-          primary: "#6613ec",
-          secondary: "#49296b",
-          accent: "#a30057",
-          neutral: "#261736",
-          "base-100": "#050307",
-        },
       },
     ],
   },

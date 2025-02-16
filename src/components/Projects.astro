@@ -2,6 +2,7 @@
 import { getI18N } from "../i18n";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
+import { FolderCode } from "lucide-react";
 
 // Lista de proyectos de GitHub
 const project = {
@@ -28,17 +29,11 @@ const project = {
 <section id="projects" class="p-16 text-center">
   <div class="flex items-center justify-center mb-12 2xl:mb-20">
     <h2
-      class="text-3xl font-[Mini] md:text-5xl lg:text-6xl font-bold text-[#0b0517] text-center"
+      class="text-4xl font-[Mini] md:text-5xl lg:text-6xl font-bold text-[#0b0517] text-center"
     >
       {i18n.MY_PROJECTS}
     </h2>
-    <img
-      loading="lazy"
-      src="/star_purple.gif"
-      alt={i18n.ALT.DOCUMENT}
-      draggable="false"
-      class="ml-4 h-10 md:h-16"
-    />
+    <FolderCode className="ml-4 h-10 w-10 md:h-16 md:w-16 text-primary" />
   </div>
   <div class="flex justify-center">
     <div

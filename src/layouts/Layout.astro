@@ -147,7 +147,7 @@ const i18n = getI18N({ currentLocale });
     }
   }
   .aboutme span {
-    color: #983aff;
+    color: #6513eb;
     font-weight: 600;
   }
 
@@ -169,5 +169,18 @@ const i18n = getI18N({ currentLocale });
     background-color: transparent !important;
     color: inherit !important;
     box-shadow: 0 0 0px 1000px #fafaff inset !important; /* Cambia 'white' por el color que desees */
+  }
+  @keyframes gradient-x {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  .animate-gradient-x {
+    animation: gradient-x 3s ease infinite;
+    background-size: 200% 200%;
   }
 </style>
