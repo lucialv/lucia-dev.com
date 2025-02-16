@@ -1,0 +1,23 @@
+---
+import { MessagesSquare } from "lucide-react";
+import Form from "../components/Form.tsx";
+import { getI18N } from "../i18n";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<div class="justify-center p-12 mx-auto mt-16 mb-32">
+  <div class="flex items-center justify-center">
+    <h2
+      class="font-[Mini] text-4xl md:text-5xl lg:text-6xl font-bold text-[#0b0517] text-center"
+    >
+      {i18n.CONTACT}
+    </h2>
+    <MessagesSquare className="ml-4 h-10 w-10 md:h-16 md:w-16 text-primary" />
+  </div>
+  <div class="flex items-center justify-center">
+    <div class="mx-auto w-full">
+      <Form currentLocale={currentLocale} client:only="react" />
+    </div>
+  </div>
+</div>
