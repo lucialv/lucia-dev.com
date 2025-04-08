@@ -29,7 +29,7 @@
   "CERTIFICATES": "Certificats",
   "MY_PROJECTS": "Els meus projectes",
   "VIEW_ON_GITHUB": "Veure a GitHub",
-  "ANIME_API_PROJECT_DESCRIPTION": "Una API senzilla amb punts finals per a gifs d'anime. L'API està allotjada a Vercel i els gifs estan emmagatzemats a Cloudflare R2 Buckets.",
+  "ANIME_API_PROJECT_DESCRIPTION": "Una API senzilla feta amb Go Lang amb endpoints per a gifs d'anime. L'API està allotjada a Vercel i els gifs estan emmagatzemats a Cloudflare R2 Buckets.",
   "REACH_OUT": "O posa't en contacte a través de:",
   "FORM": {
     "SUCCESS": "El teu missatge ha estat enviat amb èxit!",
