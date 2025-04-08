@@ -29,7 +29,7 @@
   "CERTIFICATES": "Certificates",
   "MY_PROJECTS": "My projects",
   "VIEW_ON_GITHUB": "View on GitHub",
-  "ANIME_API_PROJECT_DESCRIPTION": "A simple API with endpoints for anime gifs. The API is hosted on Vercel and the gifs are stored on Cloudflare R2 Buckets.",
+  "ANIME_API_PROJECT_DESCRIPTION": "A simple API made in Go Lang with endpoints for anime gifs. The API is hosted on Vercel and the gifs are stored on Cloudflare R2 Buckets.",
   "REACH_OUT": "Or reach out via:",
   "FORM": {
     "SUCCESS": "Your message has been sent successfully!",
