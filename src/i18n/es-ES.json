@@ -29,7 +29,7 @@
   "CERTIFICATES": "Certificados",
   "MY_PROJECTS": "Mis proyectos",
   "VIEW_ON_GITHUB": "Ver en GitHub",
-  "ANIME_API_PROJECT_DESCRIPTION": "Una simple API con endpoints para gifs de anime. La API está alojada en Vercel y los gifs están almacenados en Cloudflare R2 Buckets.",
+  "ANIME_API_PROJECT_DESCRIPTION": "Una simple API hecha en Go Lang con endpoints para gifs de anime. La API está alojada en Vercel y los gifs están almacenados en Cloudflare R2 Buckets.",
   "REACH_OUT": "O ponte en contacto a través de:",
   "FORM": {
     "SUCCESS": "¡Tu mensaje ha sido enviado con éxito!",
